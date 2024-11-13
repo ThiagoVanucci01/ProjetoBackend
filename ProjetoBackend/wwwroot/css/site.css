@@ -2,6 +2,14 @@ html {
     font-size: 14px;
 }
 
+.hImg {
+    height: 100px;
+}
+
+.PImg {
+    height: 300px
+}
+
 @media (min-width: 768px) {
     html {
         font-size: 16px;

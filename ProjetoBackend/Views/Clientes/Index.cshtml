@@ -55,7 +55,19 @@
                         <td>@Html.DisplayFor(modelItem => item.CnpjCpf)</td>
                         <td>@Html.DisplayFor(modelItem => item.Celular)</td>
                         <td>@Html.DisplayFor(modelItem => item.DataNascimento)</td>
-                        <td>@Html.DisplayFor(modelItem => item.DataCadastro) </td>
+                        <td>
+                            @{
+                                if (item.CadastroAtivo == true)
+                                {
+                                    <span>Sim</span>
+                                }
+                                else
+                                {
+                                    <span>Não</span>
+
+                                }
+                            }
+                        </td>
                         <td>
                             <a class="btn btn-sm btn-outline-primary me-2" asp-action="Edit" asp-route-id="@item.ClienteId">Editar</a>
                             <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.ClienteId">Deletar</a>

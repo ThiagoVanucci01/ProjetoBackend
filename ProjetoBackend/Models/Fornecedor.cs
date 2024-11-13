@@ -6,7 +6,7 @@ namespace ProjetoBackend.Models
     {
         public int FornecedorId { get; set; }
         [Required(ErrorMessage = "O Campo Nome da Categoria é Obrigatório!")]
-        [Display(Name = "Fornecedor")]
+        [Display(Name = "Nome do Fornecedor")]
         public string Nome { get; set; }
         [Display(Name = "E-mail")]
         [Required(ErrorMessage = "O Campo Email do Cliente é Obrigatório!")]

@@ -4,50 +4,62 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 class="container text-lg-start m-5">Fornecedores</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Celular)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CnpjCpf)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Celular)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CnpjCpf)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.FornecedorId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FornecedorId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FornecedorId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="container m-5">
+    <div class="row">
+        <div class="col">
+            <a asp-action="Create" class="btn btn-primary">Adicionar Fornecedor</a>
+        </div>
+        <div class="col">
+            <form asp-action="Search" class="search-container text-end" method="get">
+                <input type="text" name="nome" placeholder="Buscar Fornecedor..." class="search-input" />
+                <button type="submit" class="search-button"><ion-icon name="search"></ion-icon></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="table-responsive mt-5">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Celular)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CnpjCpf)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td class="text-decoration-none">@item.Email</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Celular)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CnpjCpf)
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-outline-primary me-2" asp-action="Edit" asp-route-id="@item.FornecedorId">Editar</a>
+                            <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.FornecedorId">Deletar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
